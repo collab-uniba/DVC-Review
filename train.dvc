@@ -1,0 +1,15 @@
+md5: 99cfcb7cd898005b20949bc88d543733
+cmd: python src/train.py
+deps:
+- md5: 3d98d59e960492a58e41152c992a9de6
+  path: src/train.py
+- md5: 7a713ae3ad829f77ed81dee2ba0d2334
+  path: prepared/X_train.csv
+- md5: 41d6700c65d86856e842b1a2e28d7769
+  path: prepared/y_train.csv
+outs:
+- md5: fe40410843a64850346fdb98d70cfb2c
+  path: models/default_decision_tree.joblib
+  cache: true
+  metric: false
+  persist: false
