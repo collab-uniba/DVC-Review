@@ -1,14 +1,26 @@
+import os
+import errno
 import pandas as pd
 from pathlib import Path
 from sklearn.impute import SimpleImputer
 from sklearn.model_selection import train_test_split
 
-# Path of the data folder
-data_folder_path = Path('./input')
+def mkdir_p(path):
+    try:
+        os.makedirs(path)
+    except OSError as exc:  # Python >2.5
+        if exc.errno == errno.EEXIST and os.path.isdir(path):
+            pass
+        else:
+            raise
+
+
+# Path of the input data folder
+input_folder_path = Path('./input')
 
 # Path of the files to read
-train_path = data_folder_path / 'train.csv'
-test_path = data_folder_path / 'test.csv'
+train_path = input_folder_path / 'train.csv'
+test_path = input_folder_path / 'test.csv'
 
 # Read dataset from csv file
 train_data = pd.read_csv(train_path, index_col='Id')
@@ -49,7 +61,24 @@ imputed_X_valid.columns = X_valid.columns
 X_train = imputed_X_train
 X_valid = imputed_X_valid
 
-X_train.to_csv(data_folder_path / 'X_train.csv')
-y_train.to_csv(data_folder_path / 'y_train.csv')
-X_valid.to_csv(data_folder_path / 'X_valid.csv')
-y_valid.to_csv(data_folder_path / 'y_valid.csv')
+# Path of the output data folder
+prepared_folder_path = Path('prepared')
+mkdir_p(prepared_folder_path)
+
+X_train_path = prepared_folder_path / 'X_train.csv'
+y_train_path = prepared_folder_path / 'y_train.csv'
+X_valid_path = prepared_folder_path / 'X_valid.csv'
+y_valid_path = prepared_folder_path / 'y_valid.csv'
+
+X_train.to_csv(X_train_path)
+print("Writing file {} to disk.".format(X_train_path))
+
+y_train.to_csv(y_train_path)
+print("Writing file {} to disk.".format(y_train_path))
+
+X_valid.to_csv(X_valid_path)
+print("Writing file {} to disk.".format(X_valid_path))
+
+y_valid.to_csv(y_valid_path)
+print("Writing file {} to disk.".format(y_valid_path))
+
