@@ -1,5 +1,5 @@
 import pandas as pd
-from joblib import dump, load
+from joblib import dump
 from pathlib import Path
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.metrics import mean_absolute_error
