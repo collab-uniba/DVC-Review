@@ -1,0 +1,15 @@
+md5: 7837244a2d6215749e8baed5235147a6
+cmd: python src/evaluate.py
+deps:
+- md5: 87610f109ee8b45ac499d8323f563faf
+  path: prepared/X_valid.csv
+- md5: 9e132ff0314b2ec6b31602a7a0d804ee
+  path: prepared/y_valid.csv
+- md5: fe40410843a64850346fdb98d70cfb2c
+  path: models/default_decision_tree.joblib
+outs:
+- md5: 22199887d25e5bb553423d00c513607c
+  path: metrics/mae.metric
+  cache: false
+  metric: true
+  persist: false
