@@ -1,19 +1,9 @@
-import os
-import errno
 import pandas as pd
 from pathlib import Path
 from sklearn.impute import SimpleImputer
 from sklearn.model_selection import train_test_split
 
-def mkdir_p(path):
-    try:
-        os.makedirs(path)
-    except OSError as exc:  # Python >2.5
-        if exc.errno == errno.EEXIST and os.path.isdir(path):
-            pass
-        else:
-            raise
-
+from utils import mkdir_p
 
 # Path of the input data folder
 input_folder_path = Path('./input')
