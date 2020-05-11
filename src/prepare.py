@@ -1,6 +1,7 @@
 import pandas as pd
 from pathlib import Path
 from sklearn.impute import SimpleImputer
+from sklearn.model_selection import train_test_split
 
 # Path of the data folder
 data_folder_path = Path('./input')
