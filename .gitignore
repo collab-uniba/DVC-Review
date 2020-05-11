@@ -2,3 +2,4 @@ get-started\ src/
 .vscode/
 dvc_env
 /prepared
+__pycache__/
