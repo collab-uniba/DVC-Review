@@ -6,8 +6,8 @@ from sklearn.metrics import mean_absolute_error
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.impute import SimpleImputer
 
-from utils import mkdir_p
 from utils import get_mae
+
 
 # Path of the prepared data folder
 input_folder_path = Path('./prepared')
@@ -24,6 +24,6 @@ iowa_model = RandomForestRegressor(random_state=1)
 iowa_model.fit(X_train, y_train)
 
 # Eventually I save the model as a pickle file
-mkdir_p('./models')
+Path('./models').mkdir(exist_ok=True)
 output_folder_path = Path('./models')
 dump(iowa_model, output_folder_path / 'default_decision_tree.joblib')

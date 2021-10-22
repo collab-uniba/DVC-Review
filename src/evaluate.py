@@ -4,8 +4,6 @@ import pandas as pd
 from pathlib import Path
 
 
-from utils import mkdir_p
-
 # Path to the prepared data folder
 input_folder_path = Path('./prepared')
 # Path to the models folder

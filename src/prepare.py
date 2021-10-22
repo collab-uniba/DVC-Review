@@ -3,7 +3,6 @@ from pathlib import Path
 from sklearn.impute import SimpleImputer
 from sklearn.model_selection import train_test_split
 
-from utils import mkdir_p
 
 # Path of the input data folder
 input_folder_path = Path('./input')
@@ -52,8 +51,8 @@ X_train = imputed_X_train
 X_valid = imputed_X_valid
 
 # Path of the output data folder
+Path('prepared').mkdir(exist_ok=True)
 prepared_folder_path = Path('prepared')
-mkdir_p(prepared_folder_path)
 
 X_train_path = prepared_folder_path / 'X_train.csv'
 y_train_path = prepared_folder_path / 'y_train.csv'
